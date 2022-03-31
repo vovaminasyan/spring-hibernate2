@@ -20,7 +20,7 @@ public class UserService {
         userDao.add(user);
     }
 
-    @Transactional(readOnly = true)
+    @Transactional//(readOnly = true)
     //@Override
     public List<User> listUsers() {
         return userDao.listUsers();

@@ -24,9 +24,10 @@ public class User {
 //    @JoinColumn(name = "car_id")
 //    private Car car;
 
-    public User() {
+    public User() {}
+    public User(String name) {
+        firstName = name;
     }
-
     public User(String firstName, String lastName, String email/*, Car car*/) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -65,4 +66,6 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
+
+public String toString() { return getId() + " " + getFirstName() + " " + getLastName() + " " + getEmail(); }
 }
