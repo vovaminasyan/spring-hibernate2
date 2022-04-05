@@ -15,14 +15,28 @@ public class UserService {
     private UserDao userDao;
 
     @Transactional
-    // @Override
     public void add(User user) {
         userDao.add(user);
     }
 
-    @Transactional//(readOnly = true)
-    //@Override
+    @Transactional
     public List<User> listUsers() {
         return userDao.listUsers();
+    }
+
+    @Transactional
+    public void delete(Long id) {
+        userDao.delete(id);
+    }
+
+    @Transactional
+    public void update(Long id, String firstName, String lastName, String email) {
+        userDao.update(id, firstName, lastName, email);
+    }
+
+    @Transactional
+    public User findById(Long id) {
+        User user = userDao.findById(id);
+        return user;
     }
 }
