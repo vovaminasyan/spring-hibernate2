@@ -19,19 +19,19 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/users")
+    @GetMapping("users")
     public String users(Model model) {
         //List<User> users = userService.listUsers();
         model.addAttribute("users", userService.listUsers());
         return "users";
     }
 
-    @GetMapping("/create")
+    @GetMapping("create")
     public String createUserForm(User user) {
         return "create";
     }
 
-    @PostMapping("/create")
+    @PostMapping("create")
     public String createUser(User user) {
         userService.add(user);
         return "redirect:/users";
@@ -43,14 +43,14 @@ public class UserController {
         return "redirect:/users";
     }
 
-    @GetMapping("/update/{id}")
+    @GetMapping("update/{id}")
     public String updateUserForm(@PathVariable("id") Long id, Model model) {
         User user = userService.findById(id);
         model.addAttribute("user", user);
-        return "/update";
+        return "update";
     }
 
-    @PostMapping("/update")
+    @PostMapping("update")
     public String updateUser(User user) {
         userService.update(user.getId(), user.getFirstName(), user.getLastName(), user.getEmail());
         return "redirect:/users";

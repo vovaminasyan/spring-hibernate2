@@ -11,7 +11,7 @@ import java.util.List;
 public class UserDao {
 
    @PersistenceContext
-  private EntityManager sessionFactory;
+   private EntityManager sessionFactory;
 
 
     public  void delete(Long id) {
